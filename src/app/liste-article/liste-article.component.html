@@ -11,7 +11,7 @@
           <li class="card mb-3">
             <div class="row g-0">
               <div class="col-md-4">
-                <img [src]="article.photo" class="img-fluid rounded-start" alt="Article image" />
+                <img [src]="article.photo" class="img-fluid rounded-start" alt="Article image"  />
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -37,5 +37,25 @@
         <app-add-article (articleAdded)="addarticle($event)"></app-add-article>
       }   
      </div>
+     <ul>
+      <li *ngFor="let article of filteredArticles; let i = index" class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img [src]="article.photo" class="img-fluid rounded-start" alt="Article image" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ article.title }}</h5>
+              <p class="card-text">{{ article.description }}</p>
+              <p class="card-text"><small class="text-muted">{{ article.publicationDate }}</small></p>
+              <p class="card-text">Score: {{ article.score }}</p>
+              <button class="btn btn-success me-2" (click)="plusVote(article)">Upvote</button>
+              <button class="btn btn-danger" (click)="minusVote(article)">Downvote</button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    
 
 </div>

@@ -13,8 +13,9 @@ export class ListeArticleComponent {
   Articles = [
     new Article("Article 1", "photo1","02/11/2024","description1", 0),
   ]
+  filteredArticles: Article[] = [...this.Articles];
   chercher(searchInput: string) {
-   this.Articles=this.Articles.filter(Article => Article.title.includes(searchInput));
+   this.Articles=this.Articles.filter(Article =>Article.title.toLowerCase().includes(searchInput.toLowerCase()));
 
   }
 
